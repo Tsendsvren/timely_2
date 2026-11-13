@@ -1,0 +1,46 @@
+/* Timely муур — idle анимейшн. <Avatar animate /> үед л ажиллана. */
+.cat-animate .cat-tail { animation: cat-wag 2.2s ease-in-out infinite; }
+.cat-animate .cat-eyes { animation: cat-blink 4.5s infinite; }
+.cat-animate .cat-head { animation: cat-bob 3s ease-in-out infinite; }
+.cat-animate .cat-body { animation: cat-breath 3s ease-in-out infinite; }
+.cat-animate.cat-excited .cat-all { animation: cat-hop .7s ease-in-out infinite; }
+.cat-animate.cat-excited .cat-tail { animation-duration: .5s; }
+.cat-animate.cat-sad .cat-tail { animation: none; }
+.cat-animate.cat-sad .cat-head { animation-duration: 5s; }
+.cat-animate.cat-sleepy .cat-eyes { animation: none; }
+.cat-animate.cat-sleepy .cat-body, .cat-animate.cat-sleepy .cat-head { animation-duration: 4.5s; }
+
+@keyframes cat-wag { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(9deg); } }
+@keyframes cat-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.08); } }
+@keyframes cat-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.3px); } }
+@keyframes cat-breath { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.02); } }
+@keyframes cat-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+/* ---- шинэ төлөвүүд ---- */
+.cat-animate.cat-proud .cat-head { animation: cat-proud 3s ease-in-out infinite; }
+.cat-animate.cat-comfort .cat-all { animation: cat-sway 4.5s ease-in-out infinite; transform-origin: 60px 110px; transform-box: view-box; }
+.cat-animate.cat-comfort .cat-tail { animation-duration: 3.4s; }
+.cat-animate.cat-tired .cat-tail { animation: none; }
+.cat-animate.cat-tired .cat-eyes { animation-duration: 7s; }
+.cat-animate.cat-tired .cat-head { animation: cat-droop 4.5s ease-in-out infinite; }
+.cat-animate .cat-book { animation: cat-read 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+
+/* ---- гэрэл (glow), зүрх, уур ---- */
+.cat-halo { animation: cat-pulse 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cat-spark { animation: cat-twinkle 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cat-heart { animation: cat-float 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cat-steam path { animation: cat-steam 2.2s ease-in-out infinite; }
+.cat-steam path:nth-child(2) { animation-delay: .9s; }
+
+@keyframes cat-proud { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(-3px); } }
+@keyframes cat-sway { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+@keyframes cat-droop { 0%, 100% { transform: translateY(1px) rotate(0deg); } 50% { transform: translateY(3px) rotate(2.2deg); } }
+@keyframes cat-read { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1px); } }
+@keyframes cat-pulse { 0%, 100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
+@keyframes cat-twinkle { 0%, 100% { opacity: .15; transform: scale(.5); } 50% { opacity: 1; transform: scale(1.15); } }
+@keyframes cat-float { 0%, 100% { transform: translateY(0) scale(1); opacity: .9; } 50% { transform: translateY(-4px) scale(1.12); opacity: 1; } }
+@keyframes cat-steam { 0% { opacity: 0; transform: translateY(3px); } 50% { opacity: .9; } 100% { opacity: 0; transform: translateY(-4px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-animate *, .cat-glow *, .cat-heart, .cat-steam path { animation: none !important; }
+}

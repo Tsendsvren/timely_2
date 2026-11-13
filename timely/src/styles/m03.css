@@ -1,0 +1,12 @@
+/* M03 (B242270005): устгах баталгаажуулах цонх. Бусад нь app.css-ийн class. */
+.m03-overlay {
+  position: fixed; inset: 0; background: rgba(27, 27, 47, .5);
+  display: grid; place-items: center; z-index: 1000; padding: 1rem;
+}
+.m03-modal {
+  background: var(--card); color: var(--ink); border-radius: var(--r);
+  padding: 1.5rem; width: min(420px, 100%);
+  display: flex; flex-direction: column; gap: .75rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+}
+.m03-modal h2 { margin: 0; font-size: 1.2rem; }

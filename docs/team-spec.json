@@ -1,0 +1,67 @@
+{
+  "teamName": "Timely Team",
+  "projectName": "Timely - Smart Student Scheduler",
+  "members": [
+    {
+      "studentCode": "B242270128",
+      "name": "Ахлагч (М01)",
+      "gitEmail": "m01@example.com",
+      "role": "M01: Auth, User & Spec Lead"
+    },
+    {
+      "studentCode": "B242270134",
+      "name": "Гишүүн 2 (М02)",
+      "gitEmail": "m02@example.com",
+      "role": "M02: Planner & Dashboard Lead"
+    },
+    {
+      "studentCode": "B242270005",
+      "name": "Гишүүн 3 (М03)",
+      "gitEmail": "m03@example.com",
+      "role": "M03: Task CRUD & Timer Lead"
+    },
+    {
+      "studentCode": "B42270131",
+      "name": "Гишүүн 4 (М04)",
+      "gitEmail": "m04@example.com",
+      "role": "M04: Commitments & Habits Lead"
+    },
+    {
+      "studentCode": "B242270133",
+      "name": "Гишүүн 5 (М05)",
+      "gitEmail": "m05@example.com",
+      "role": "M05: Grades, GPA & Admin Shop Lead"
+    }
+  ],
+  "roles": ["member", "admin"],
+  "entities": ["User", "Task", "Commitment", "CourseGrade", "ShopItem"],
+  "routes": [
+    "/",
+    "/authenticate",
+    "/planner",
+    "/tasks/new",
+    "/tasks/:id",
+    "/commitments",
+    "/focus-timer",
+    "/grades",
+    "/gpa-goal",
+    "/gamification/shop",
+    "/profile",
+    "/admin/shop"
+  ],
+  "apiEndpoints": [
+    "POST /api/users/signup",
+    "POST /api/users/login",
+    "GET /api/users/me",
+    "GET /api/tasks",
+    "POST /api/tasks",
+    "PATCH /api/tasks/:id",
+    "DELETE /api/tasks/:id",
+    "GET /api/commitments",
+    "POST /api/commitments",
+    "GET /api/grades",
+    "POST /api/grades",
+    "GET /api/shop/items",
+    "POST /api/admin/shop/items"
+  ]
+}

@@ -1,0 +1,56 @@
+/* Амьд хамтрагч муур: яриа бөмбөлөг + муур + сэтгэл/эрч хүч/дотно байдлын заагч */
+.companion { width: 100%; display: flex; flex-direction: column; gap: .8rem; }
+.companion-stage {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  padding: 1rem .8rem .6rem; border-radius: 14px; background: var(--pri-l);
+  transition: background .6s;
+}
+.companion.is-glow .companion-stage { background: radial-gradient(circle at 50% 70%, #fff3c4, var(--pri-l) 72%); }
+
+.companion-bubble {
+  position: relative; max-width: 100%; background: #fff; color: var(--ink);
+  border: 2.5px solid var(--ink); border-radius: 18px 20px 18px 22px / 20px 18px 22px 18px;
+  box-shadow: 3px 4px 0 var(--ink); padding: .7rem 2rem .7rem .9rem; text-align: left;
+  font-weight: 700; font-size: .92rem; line-height: 1.4;
+  display: flex; flex-direction: column; align-items: flex-start; gap: .55rem;
+  animation: companion-pop .32s cubic-bezier(.34, 1.56, .64, 1);
+}
+.companion-bubble p { margin: 0; animation: companion-pop .32s cubic-bezier(.34, 1.56, .64, 1); }
+.companion-bubble::after { /* сүүл: муур руу заана */
+  content: ''; position: absolute; left: 50%; bottom: -12px; width: 16px; height: 16px; margin-left: -8px;
+  background: inherit; border-right: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
+  transform: rotate(45deg); border-bottom-right-radius: 4px;
+}
+.companion-bubble.tone-sad { background: #fff1f1; }
+.companion-bubble.tone-comfort { background: #fff0f6; }
+.companion-bubble.tone-tired, .companion-bubble.tone-sleepy { background: #f1f3fb; }
+.companion-bubble.tone-proud, .companion-bubble.tone-excited { background: #fff8e1; }
+.companion-x {
+  position: absolute; top: .25rem; right: .3rem; width: 1.6rem; height: 1.6rem; border: 0; border-radius: 50%;
+  background: transparent; color: var(--mut); font-size: 1.15rem; line-height: 1; cursor: pointer;
+}
+.companion-x:hover { background: rgba(0, 0, 0, .06); color: var(--ink); }
+.companion-reopen { align-self: center; }
+
+.companion-cat { border: 0; background: transparent; padding: 0; cursor: pointer; border-radius: 16px; line-height: 0; }
+.companion-cat:focus-visible { outline: 3px solid var(--pri); outline-offset: 4px; }
+.companion-cat.is-petted { animation: companion-purr .6s ease-in-out; }
+.companion-cat svg { overflow: visible; }
+
+.companion-meters { display: flex; flex-direction: column; gap: .6rem; text-align: left; }
+.companion-meters .meter { display: flex; flex-direction: column; gap: .25rem; }
+.companion-meters .meter > .between { font-size: .85rem; }
+.companion-meters p { margin: 0; }
+
+@keyframes companion-pop { from { opacity: 0; transform: translateY(6px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes companion-purr {
+  0%, 100% { transform: scale(1) rotate(0); }
+  20% { transform: scale(1.06, .95) rotate(-2deg); } 40% { transform: scale(.96, 1.05) rotate(2deg); }
+  60% { transform: scale(1.04, .97) rotate(-1deg); } 80% { transform: scale(.99, 1.02) rotate(1deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .companion-bubble, .companion-bubble p, .companion-cat.is-petted { animation: none; }
+}
+
+/* Focus Timer дээр муур нарийхан байна */
+.timer-card .companion { max-width: 380px; margin-inline: auto; }

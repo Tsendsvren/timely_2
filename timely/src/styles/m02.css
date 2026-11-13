@@ -1,0 +1,53 @@
+
+/* ---------- Dashboard ---------- */
+.m02-stat { display: flex; align-items: center; gap: .9rem; }
+.m02-stat-icon { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; }
+.m02-stat-icon.pri { background: var(--pri-l); color: var(--pri); }
+.m02-stat-icon.blu { background: var(--blu-l); color: var(--blu); }
+.m02-stat-icon.grn { background: var(--grn-l); color: var(--grn); }
+.m02-stat-body { display: flex; flex-direction: column; min-width: 0; }
+
+.m02-done strong { text-decoration: line-through; opacity: .6; }
+.progress span.amb { background: var(--amb); }
+.progress span.grn { background: var(--grn); }
+.chart .m02-val { font-size: .75rem; color: var(--mut); }
+
+/* ---------- Planner: 7 хоногийн календарь (08:00–21:00 цагийн тор) ---------- */
+.m02-cal-scroll { overflow-x: auto; padding-bottom: .75rem; }
+.m02-cal-grid { display: grid; grid-template-columns: 52px repeat(7, minmax(110px, 1fr)); column-gap: .5rem; min-width: 860px; }
+.m02-cal-dayhead { text-align: center; background: var(--bg); border-radius: 10px; padding: .45rem 0; margin: 0 0 .6rem; font-weight: 400; }
+.m02-cal-dayhead.is-today { background: var(--pri); color: #fff; }
+.m02-cal-dayhead small { display: block; font-size: .75rem; opacity: .85; }
+.m02-cal-dayhead b { font-size: 1.15rem; }
+.m02-cal-times { position: relative; }
+.m02-cal-time { position: absolute; left: 0; font-size: .75rem; color: var(--mut); transform: translateY(-50%); }
+.m02-cal-col { position: relative; background: var(--bg); border-radius: 12px; }
+.m02-cal-col.is-today { background: var(--pri-l); }
+.m02-cal-line { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--line); }
+.m02-cal-free { position: absolute; top: .5rem; left: 0; right: 0; text-align: center; font-size: .75rem; color: var(--mut); }
+.m02-ev { position: absolute; left: 2px; right: 2px; display: block; border-radius: 8px; padding: .35rem .5rem; overflow: hidden; font-size: .78rem; }
+a.m02-ev:hover { filter: brightness(.96); }
+.m02-ev-title { display: block; font-weight: 700; line-height: 1.2; }
+.m02-ev-time { display: block; color: var(--mut); margin-top: 2px; }
+.m02-ev.blu { background: var(--blu-l); color: var(--blu); }
+.m02-ev.pri { background: var(--pri-l); color: var(--pri); }
+.m02-ev.amb { background: var(--amb-l); color: #b7791f; }
+.m02-ev.red { background: var(--red-l); color: var(--red); }
+.m02-ev.grn { background: var(--grn-l); color: var(--grn); }
+
+.m02-legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .8rem; color: var(--mut); }
+.m02-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+.m02-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+.m02-daytabs { display: none; }
+
+/* ---------- Mobile (390px): нэг өдрийн харагдац ---------- */
+@media (max-width: 760px) {
+  .m02-daytabs { display: flex; gap: .3rem; overflow-x: auto; margin-bottom: .75rem; }
+  .m02-daytabs button { flex: 1 0 42px; border: 0; background: var(--bg); border-radius: 10px; padding: .4rem 0; font: inherit; font-size: .75rem; cursor: pointer; color: inherit; }
+  .m02-daytabs button b { display: block; font-size: 1rem; }
+  .m02-daytabs button[aria-selected='true'] { background: var(--pri); color: #fff; }
+  .m02-cal-grid { grid-template-columns: 46px minmax(0, 1fr); min-width: 0; }
+  .m02-cal-dayhead, .m02-cal-spacer { display: none; }
+  .m02-cal-col:not(.is-active) { display: none; }
+}
