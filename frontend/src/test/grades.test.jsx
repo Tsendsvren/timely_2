@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../App.jsx';
 import { AppProvider } from '../store/AppContext.jsx';
-import { seed } from '../mock/data.js';
+import { seed } from '../mocks/data.js';
 
 function renderGrades() {
   return render(

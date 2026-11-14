@@ -4,7 +4,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { AppProvider } from '../store/AppContext.jsx';
 import Commitments from '../pages/Commitments.jsx';
-import { seed } from '../mock/data.js';
+import { seed } from '../mocks/data.js';
 
 function setup() {
   const userId = seed.users[0].id;

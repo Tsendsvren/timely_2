@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { AppProvider, useApp } from '../store/AppContext.jsx';
 import GpaGoal from '../pages/GpaGoal.jsx';
-import { seed } from '../mock/data.js';
+import { seed } from '../mocks/data.js';
 
 function SavedGpa() {
   const { mine, profile } = useApp();

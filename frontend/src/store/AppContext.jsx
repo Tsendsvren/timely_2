@@ -1,5 +1,5 @@
-import { createContext, useContext, useMemo, useRef, useState } from 'react';
-import { seed, lessons } from '../mock/data.js';
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { seed, lessons } from '../mocks/data.js';
 import { isFree } from '../lib/scheduler.js'; // M02
 import { validateTask, validateShopItem } from '../lib/validate.js'; // M03
 import { durationMin, TODAY } from '../lib/dates.js'; // M03
@@ -17,10 +17,21 @@ const Ctx = createContext(null);
 
 export const useApp = () => useContext(Ctx);
 
+// Mock session: URL-ээр шууд орох/reload хийхэд нэвтрэлт алдагдахгүй байхаар
+// зөвхөн нэвтэрсэн userId-г sessionStorage-д хадгална (backend, token байхгүй).
+const SESSION_KEY = 'timely.session.userId';
+export function loadSessionUserId() {
+  try {
+    return window.sessionStorage.getItem(SESSION_KEY) || null;
+  } catch {
+    return null;
+  }
+}
+
 // Бүх өгөгдөл санах ойд (mock).
 // Backend руу хүсэлт илгээхгүй.
 export function AppProvider({ children, initialUserId = null }) {
-  // M02 (B242270134): Хичээлийн хуваарь хэрэглэгч бүрийнх. mock/data.js-ийн жишээ хуваарь
+  // M02 (B242270134): Хичээлийн хуваарь хэрэглэгч бүрийнх. mocks/data.js-ийн жишээ хуваарь
   // зөвхөн жишээ оюутан U01-д хамаарна — шинээр бүртгүүлсэн хэрэглэгч хоосон эхэлнэ.
   const [data, setData] = useState(() => {
     const initial = structuredClone(seed);
@@ -57,6 +68,15 @@ export function AppProvider({ children, initialUserId = null }) {
   });
   const ref = useRef(data);
   const [userId, setUserId] = useState(initialUserId);
+
+  useEffect(() => {
+    try {
+      if (userId) window.sessionStorage.setItem(SESSION_KEY, userId);
+      else window.sessionStorage.removeItem(SESSION_KEY);
+    } catch {
+      /* storage хаалттай үед session хадгалахгүй, апп хэвийн ажиллана */
+    }
+  }, [userId]);
 
   const commit = (fn) => {
     const next = fn(ref.current);

@@ -158,7 +158,7 @@ Request:
 - `TML-DASH-S4` Study block-ийг дууссан гэж тэмдэглэх -> PATCH 200; гүйцэтгэлийн хувь шинэчлэгдэнэ
 
 ### TML-PLAN — Ухаалаг төлөвлөгч, Study block санал
-- **Хариуцагч:** M02 (B242270134) | **Reviewer:** M04 (B42270131)
+- **Хариуцагч:** M02 (B242270134) | **Reviewer:** M04 (B242270131)
 - **SPA:** `/planner` | **Entity:** Task, StudyBlock, Commitment | **Хамаарах:** TML-TASK, TML-COMMIT
 
 | Method | Path | Эрх | Request | Амжилт | Алдаа |
@@ -329,7 +329,7 @@ Request:
 - `TML-TIMER-S4` UI: Stop дарах -> `/` руу шилжиж оноо шинэчлэгдсэн харагдана
 
 ### TML-COMMIT — Гадуурх ачаалал ба дадлын CRUD
-- **Хариуцагч:** M04 (B42270131) | **Reviewer:** M03 (B242270005)
+- **Хариуцагч:** M04 (B242270131) | **Reviewer:** M03 (B242270005)
 - **SPA:** `/commitments` | **Entity:** Commitment | **Хамаарах:** TML-AUTH
 
 | Method | Path | Эрх | Request | Амжилт | Алдаа |
@@ -384,7 +384,7 @@ Request:
 - `TML-COMMIT-S4` Нэмсэний дараа /planner -> commitment-ийн цаг Study block-оос хасагдсан
 
 ### TML-RESCHED — Хоцорсон блок шилжүүлэх (reschedule логик)
-- **Хариуцагч:** M04 (B42270131) | **Reviewer:** M02 (B242270134)
+- **Хариуцагч:** M04 (B242270131) | **Reviewer:** M02 (B242270134)
 - **SPA:** `/tasks/:id (хэсэг)` | **Entity:** StudyBlock, Task | **Хамаарах:** TML-PLAN, TML-TASK
 
 | Method | Path | Эрх | Request | Амжилт | Алдаа |
@@ -417,7 +417,7 @@ Request:
 - `TML-RESCHED-S4` Блок устгах -> 204; дараагийн planner-д харагдахгүй
 
 ### TML-GRADES — Дүнгийн 70/30 What-if тооцоолуур
-- **Хариуцагч:** M05 (B242270133) | **Reviewer:** M04 (B42270131)
+- **Хариуцагч:** M05 (B242270133) | **Reviewer:** M04 (B242270131)
 - **SPA:** `/grades` | **Entity:** CourseGrade | **Хамаарах:** TML-AUTH
 
 | Method | Path | Эрх | Request | Амжилт | Алдаа |
@@ -663,7 +663,7 @@ multipart/form-data: image (jpg/png, <= 2 MB)
 | M01 | B242270128 | Authentication & User | TML-AUTH, TML-PROFILE |
 | M02 | B242270134 | Planner & Dashboard | TML-DASH, TML-PLAN |
 | M03 | B242270005 | Task & Timer CRUD | TML-TASK, TML-TIMER |
-| M04 | B42270131 | Commitment & Habit, Reschedule logic | TML-COMMIT, TML-RESCHED |
+| M04 | B242270131 | Commitment & Habit, Reschedule logic | TML-COMMIT, TML-RESCHED |
 | M05 | B242270133 | Grade & GPA, Gamification & Admin | TML-GRADES, TML-GPA, TML-SHOP, TML-ADMIN |
 
 ## Тэмдэглэл

@@ -140,5 +140,5 @@ Mock ID-г backend шатанд бодит ObjectId холбоосоор сол�
 | User (бүртгэл, нэвтрэлт, профайл) | M01 — B242270128 |
 | StudyBlock, Dashboard-д унших query | M02 — B242270134 |
 | Task, FocusSession | M03 — B242270005 |
-| Commitment, хоцорсон блок шилжүүлэх | M04 — B42270131 |
+| Commitment, хоцорсон блок шилжүүлэх | M04 — B242270131 |
 | CourseGrade, SemesterResult, ShopItem (худалдан авалт, Админ CRUD) | M05 — B242270133 |

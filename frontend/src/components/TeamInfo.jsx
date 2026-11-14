@@ -1,4 +1,4 @@
-import { TEAM } from "../mock/team.js";
+import { TEAM } from "../mocks/team.js";
 
 export default function TeamInfo() {
   return (

@@ -13,7 +13,7 @@ Timely бол оюутны цаг төлөвлөлт, Focus Timer, дүн/GPA т
 | M01 | B242270128 | Authentication & User |
 | M02 | B242270134 | Planner & Dashboard |
 | M03 | B242270005 | Task & Timer CRUD |
-| M04 | B42270131 | Commitment & Habit, Reschedule logic |
+| M04 | B242270131 | Commitment & Habit, Reschedule logic |
 | M05 | B242270133 | Grade & GPA, Gamification & Admin |
 
 ## Дэлгэц хоорондын шилжилт
