@@ -4,13 +4,13 @@
 
 ## Модулийн эзэмшил
 
-- **M01 (B242270128):** User, бүртгэл, нэвтрэлт (JWT), профайл, аватар өмсгөх, auth middleware. Route: `/authenticate`, `/profile`.
-- **M02 (B242270134):** Dashboard, ухаалаг төлөвлөгч, Study block санал (scheduler), `GET /api/tasks` жагсаалт. Route: `/`, `/planner`.
-- **M03 (B242270005):** Даалгаврын CRUD, Focus Timer, оноо олгох. Route: `/tasks/new`, `/tasks/:id`, `/focus-timer`.
-- **M04 (B42270131):** Commitment/Habit CRUD, хоцорсон блок шилжүүлэх (reschedule логик). Route: `/commitments`, `/tasks/:id` дахь шилжүүлэх хэсэг.
-- **M05 (B242270133):** CourseGrade (What-if), 8 улирлын GPA, ShopItem, худалдан авалт, Админ CRUD, зураг upload, Docker Compose. Route: `/grades`, `/gpa-goal`, `/gamification/shop`, `/admin/shop`.
+- **M01 — Ц.Цэндсүрэн (B242270128):** User, бүртгэл, нэвтрэлт (JWT), профайл, аватар өмсгөх, auth middleware. Route: `/authenticate`, `/profile`.
+- **M02 — М.Хуншагай (B242270134):** Dashboard, ухаалаг төлөвлөгч, Study block санал (scheduler), `GET /api/tasks` жагсаалт. Route: `/`, `/planner`.
+- **M03 — Ч.Гантогтох (B242270005):** Даалгаврын CRUD, Focus Timer, оноо олгох. Route: `/tasks/new`, `/tasks/:id`, `/focus-timer`.
+- **M04 — У.Янжинлхам (B242270131):** Commitment/Habit CRUD, хоцорсон блок шилжүүлэх (reschedule логик). Route: `/commitments`, `/tasks/:id` дахь шилжүүлэх хэсэг.
+- **M05 — М.Цогтбаяр (B242270133):** CourseGrade (What-if), 8 улирлын GPA, ShopItem, худалдан авалт, Админ CRUD, зураг upload, Docker Compose. Route: `/grades`, `/gpa-goal`, `/gamification/shop`, `/admin/shop`.
 
-Хариуцагчийн нэрийг бодит оюутны нэрээр нэмж болно.
+Гишүүдийн Git email, нэр, оюутны код нь `team-spec.json`-ийн `team.members`-тэй таарна.
 
 ## Ажлын бүртгэл
 
@@ -23,15 +23,15 @@
 - Routes: `/authenticate`
 - Endpoints: POST /api/auth/signup, POST /api/auth/login, GET /api/auth/me
 - Файл:
-  - `frontend/src/pages/AuthenticatePage.jsx`
-  - `frontend/src/context/AuthContext.jsx`
-  - `frontend/src/components/RequireAuth.jsx`
+  - `frontend/src/pages/Authenticate.jsx`
+  - `frontend/src/store/AppContext.jsx`
+  - `frontend/src/App.jsx`
   - `backend/models/User.js`
   - `backend/routes/auth.js`
   - `backend/controllers/authController.js`
   - `backend/middleware/auth.js`
   - `backend/tests/auth.test.js`
-  - `frontend/src/pages/__tests__/AuthenticatePage.test.jsx`
+  - `frontend/src/test/auth-password.test.jsx`
 - Ноорог: `docs/wireframes/02-authenticate.png`
 - Хамаарал: байхгүй
 - Хүлээн авах шалгуур:
@@ -53,8 +53,8 @@
 - Routes: `/profile`
 - Endpoints: PATCH /api/auth/me, PUT /api/auth/me/equipped
 - Файл:
-  - `frontend/src/pages/ProfilePage.jsx`
-  - `frontend/src/components/AvatarStage.jsx`
+  - `frontend/src/pages/Profile.jsx`
+  - `frontend/src/components/Avatar.jsx`
   - `backend/controllers/profileController.js`
   - `backend/tests/profile.test.js`
 - Ноорог: `docs/wireframes/11-profile.png`
@@ -79,7 +79,7 @@
 - Routes: `/`
 - Endpoints: GET /api/dashboard, PATCH /api/study-blocks/:id
 - Файл:
-  - `frontend/src/pages/DashboardPage.jsx`
+  - `frontend/src/pages/Dashboard.jsx`
   - `frontend/src/components/WorkloadChart.jsx`
   - `backend/controllers/dashboardController.js`
   - `backend/routes/dashboard.js`
@@ -101,12 +101,12 @@
 - taskId: TML-PLAN
 - Үе шат: Lab
 - Үндсэн эзэн: M02 (B242270134)
-- Reviewer: M04 (B42270131)
+- Reviewer: M04 (B242270131)
 - Хэсэг: PlannerPage, WeekCalendar, SuggestionStrip; Task, StudyBlock, Commitment entity
 - Routes: `/planner`
 - Endpoints: GET /api/tasks, GET /api/planner, GET /api/study-blocks/suggestions, POST /api/study-blocks, POST /api/planner/replan
 - Файл:
-  - `frontend/src/pages/PlannerPage.jsx`
+  - `frontend/src/pages/Planner.jsx`
   - `frontend/src/components/WeekCalendar.jsx`
   - `frontend/src/components/SuggestionStrip.jsx`
   - `backend/models/StudyBlock.js`
@@ -137,14 +137,14 @@
 - Routes: `/tasks/new`, `/tasks/:id`
 - Endpoints: GET /api/tasks/:id, POST /api/tasks, PATCH /api/tasks/:id, DELETE /api/tasks/:id
 - Файл:
-  - `frontend/src/pages/TaskNewPage.jsx`
-  - `frontend/src/pages/TaskEditPage.jsx`
+  - `frontend/src/pages/TaskNew.jsx`
+  - `frontend/src/pages/TaskEdit.jsx`
   - `frontend/src/components/TaskForm.jsx`
   - `backend/models/Task.js`
   - `backend/routes/tasks.js`
   - `backend/controllers/taskController.js`
   - `backend/tests/tasks.test.js`
-  - `frontend/src/pages/__tests__/TaskNewPage.test.jsx`
+  - `frontend/src/test/task.test.jsx`
 - Ноорог: `docs/wireframes/04-task-new.png`, `docs/wireframes/05-task-edit.png`
 - Хамаарал: TML-AUTH
 - Хүлээн авах шалгуур:
@@ -167,7 +167,7 @@
 - Routes: `/focus-timer`
 - Endpoints: POST /api/focus-sessions, POST /api/focus-sessions/:id/stop, GET /api/focus-sessions
 - Файл:
-  - `frontend/src/pages/FocusTimerPage.jsx`
+  - `frontend/src/pages/FocusTimer.jsx`
   - `frontend/src/components/TimerRing.jsx`
   - `backend/models/FocusSession.js`
   - `backend/routes/focusSessions.js`
@@ -189,14 +189,13 @@
 ### TML-COMMIT — Гадуурх ачаалал ба дадлын CRUD
 - taskId: TML-COMMIT
 - Үе шат: Lab
-- Үндсэн эзэн: M04 (B42270131)
+- Үндсэн эзэн: M04 (B242270131)
 - Reviewer: M03 (B242270005)
 - Хэсэг: CommitmentsPage, CommitmentForm; Commitment entity
 - Routes: `/commitments`
 - Endpoints: GET /api/commitments, POST /api/commitments, PATCH /api/commitments/:id, DELETE /api/commitments/:id
 - Файл:
-  - `frontend/src/pages/CommitmentsPage.jsx`
-  - `frontend/src/components/CommitmentForm.jsx`
+  - `frontend/src/pages/Commitments.jsx`
   - `backend/models/Commitment.js`
   - `backend/routes/commitments.js`
   - `backend/controllers/commitmentController.js`
@@ -217,13 +216,12 @@
 ### TML-RESCHED — Хоцорсон блок шилжүүлэх (reschedule логик)
 - taskId: TML-RESCHED
 - Үе шат: Lab
-- Үндсэн эзэн: M04 (B42270131)
+- Үндсэн эзэн: M04 (B242270131)
 - Reviewer: M02 (B242270134)
 - Хэсэг: MissedBlocksPanel; StudyBlock, Task entity
 - Routes: `/tasks/:id`
 - Endpoints: POST /api/study-blocks/:id/reschedule, DELETE /api/study-blocks/:id
 - Файл:
-  - `frontend/src/components/MissedBlocksPanel.jsx`
   - `backend/services/reschedule.js`
   - `backend/routes/studyBlocks.js`
   - `backend/tests/reschedule.test.js`
@@ -244,7 +242,7 @@
 - taskId: TML-GRADES
 - Үе шат: Lab
 - Үндсэн эзэн: M05 (B242270133)
-- Reviewer: M04 (B42270131)
+- Reviewer: M04 (B242270131)
 - Хэсэг: GradesPage, WhatIfSlider; CourseGrade entity
 - Routes: `/grades`
 - Endpoints: GET /api/grades, POST /api/grades, PATCH /api/grades/:id, DELETE /api/grades/:id, POST /api/grades/:id/what-if
@@ -278,8 +276,7 @@
 - Routes: `/gpa-goal`
 - Endpoints: GET /api/semesters, PUT /api/semesters/:n, GET /api/gpa-goal
 - Файл:
-  - `frontend/src/pages/GpaGoalPage.jsx`
-  - `frontend/src/components/SemesterChart.jsx`
+  - `frontend/src/pages/GpaGoal.jsx`
   - `backend/models/SemesterResult.js`
   - `backend/routes/semesters.js`
   - `backend/services/gpaCalc.js`
@@ -306,8 +303,7 @@
 - Routes: `/gamification/shop`
 - Endpoints: GET /api/shop/items, POST /api/shop/items/:id/buy
 - Файл:
-  - `frontend/src/pages/ShopPage.jsx`
-  - `frontend/src/components/ShopItemCard.jsx`
+  - `frontend/src/pages/Shop.jsx`
   - `backend/routes/shop.js`
   - `backend/controllers/shopController.js`
   - `backend/tests/shop.test.js`
@@ -333,8 +329,8 @@
 - Routes: `/admin/shop`
 - Endpoints: GET /api/admin/shop/items, POST /api/admin/shop/items, PATCH /api/admin/shop/items/:id, DELETE /api/admin/shop/items/:id, POST /api/uploads/image, GET /api/admin/stats
 - Файл:
-  - `frontend/src/pages/AdminShopPage.jsx`
-  - `frontend/src/components/RequireAdmin.jsx`
+  - `frontend/src/pages/AdminShop.jsx`
+  - `frontend/src/App.jsx`
   - `backend/models/ShopItem.js`
   - `backend/routes/adminShop.js`
   - `backend/routes/uploads.js`
@@ -377,3 +373,7 @@
 ## Давхардлын зохицуулалт
 
 Нэг үр дүн нэг үндсэн эзэнтэй. Reviewer-ийг хэрэгжүүлэгч гэж давхар тооцохгүй. Shared файл өөрчлөхдөө үндсэн эзэнтэй issue дээр тохиролцоно. Хуваарилалт өөрчлөгдвөл багшаар батлуулна. Бэлэн template-ийн холбоос, hash-ийг бодит ажлынхтай солино.
+## Лаб 1–3 нэмэлт (нийтлэг суурь)
+
+- **M01 (B242270128):** `team-spec.json`, homepage-ийн багийн хэсэг (`frontend/src/components/TeamInfo.jsx`, `frontend/src/mocks/team.js`), mock session хадгалалт (`frontend/src/store/AppContext.jsx`), Playwright `crud`/`validation`/`role` scenario (`frontend/e2e/`).
+- Хавтасны бүтэц: `frontend/` (React + Vite), `backend/` (Бие даалт 2), `docs/`, `team-spec.json`, `WORK_ALLOCATION.md`.

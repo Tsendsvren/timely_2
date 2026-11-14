@@ -1,0 +1,468 @@
+{
+  "team": {
+    "name": "Timely Team",
+    "projectName": "Timely — Ухаалаг оюутны хуваарь",
+    "repository": "https://gitlab.com/B242270128/itm301lab_biydaalt",
+    "members": [
+      {
+        "moduleId": "M01",
+        "name": "Ц.Цэндсүрэн",
+        "studentCode": "B242270128",
+        "gitEmail": "tsekvv2006@gmail.com",
+        "responsibility": "Бүртгэл, нэвтрэлт, профайл, spec"
+      },
+      {
+        "moduleId": "M02",
+        "name": "М.Хуншагай",
+        "studentCode": "B242270134",
+        "gitEmail": "B242270134@must.edu.mn",
+        "responsibility": "Dashboard, төлөвлөгч"
+      },
+      {
+        "moduleId": "M03",
+        "name": "Ч.Гантогтох",
+        "studentCode": "B242270005",
+        "gitEmail": "B242270005@must.edu.mn",
+        "responsibility": "Даалгаврын CRUD, Focus Timer"
+      },
+      {
+        "moduleId": "M04",
+        "name": "У.Янжинлхам",
+        "studentCode": "B242270131",
+        "gitEmail": "b242270131@gmail.com",
+        "responsibility": "Гадуурх ачаалал, дадал"
+      },
+      {
+        "moduleId": "M05",
+        "name": "М.Цогтбаяр",
+        "studentCode": "B242270133",
+        "gitEmail": "mtsogtbayar24@gmail.com",
+        "responsibility": "Дүн, GPA, дэлгүүр, админ"
+      }
+    ]
+  },
+  "roles": [
+    "member",
+    "admin"
+  ],
+  "entities": [
+    "User",
+    "Task",
+    "Commitment",
+    "CourseGrade",
+    "ShopItem",
+    "StudyBlock",
+    "FocusSession",
+    "SemesterResult"
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "testId": "page-dashboard",
+      "access": "member",
+      "taskId": "TML-DASH",
+      "owner": "M02",
+      "lab": 2
+    },
+    {
+      "path": "/authenticate",
+      "testId": "page-authenticate",
+      "access": "guest",
+      "taskId": "TML-AUTH",
+      "owner": "M01",
+      "lab": 2
+    },
+    {
+      "path": "/planner",
+      "testId": "page-planner",
+      "access": "member",
+      "taskId": "TML-PLAN",
+      "owner": "M02",
+      "lab": 2
+    },
+    {
+      "path": "/tasks/new",
+      "testId": "page-task-new",
+      "access": "member",
+      "taskId": "TML-TASK",
+      "owner": "M03",
+      "lab": 2
+    },
+    {
+      "path": "/tasks/:id",
+      "testId": "page-task-edit",
+      "access": "member",
+      "taskId": "TML-TASK",
+      "owner": "M03",
+      "lab": 3
+    },
+    {
+      "path": "/commitments",
+      "testId": "page-commitments",
+      "access": "member",
+      "taskId": "TML-COMMIT",
+      "owner": "M04",
+      "lab": 2
+    },
+    {
+      "path": "/focus-timer",
+      "testId": "page-focus-timer",
+      "access": "member",
+      "taskId": "TML-TIMER",
+      "owner": "M03",
+      "lab": 3
+    },
+    {
+      "path": "/grades",
+      "testId": "page-grades",
+      "access": "member",
+      "taskId": "TML-GRADES",
+      "owner": "M05",
+      "lab": 3
+    },
+    {
+      "path": "/gpa-goal",
+      "testId": "page-gpa-goal",
+      "access": "member",
+      "taskId": "TML-GPA",
+      "owner": "M05",
+      "lab": 3
+    },
+    {
+      "path": "/gamification/shop",
+      "testId": "page-shop",
+      "access": "member",
+      "taskId": "TML-SHOP",
+      "owner": "M05",
+      "lab": 3
+    },
+    {
+      "path": "/profile",
+      "testId": "page-profile",
+      "access": "member",
+      "taskId": "TML-PROFILE",
+      "owner": "M01",
+      "lab": 2
+    },
+    {
+      "path": "/admin/shop",
+      "testId": "page-admin-shop",
+      "access": "admin",
+      "taskId": "TML-ADMIN",
+      "owner": "M05",
+      "lab": 3
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/admin/shop/items",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/shop/items",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/admin/shop/items/:id",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/admin/shop/items/:id",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/stats",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "taskId": "TML-AUTH",
+      "owner": "M01"
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "taskId": "TML-AUTH",
+      "owner": "M01"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/auth/me",
+      "taskId": "TML-PROFILE",
+      "owner": "M01"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/auth/me/equipped",
+      "taskId": "TML-PROFILE",
+      "owner": "M01"
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/signup",
+      "taskId": "TML-AUTH",
+      "owner": "M01"
+    },
+    {
+      "method": "GET",
+      "path": "/api/commitments",
+      "taskId": "TML-COMMIT",
+      "owner": "M04"
+    },
+    {
+      "method": "POST",
+      "path": "/api/commitments",
+      "taskId": "TML-COMMIT",
+      "owner": "M04"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/commitments/:id",
+      "taskId": "TML-COMMIT",
+      "owner": "M04"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/commitments/:id",
+      "taskId": "TML-COMMIT",
+      "owner": "M04"
+    },
+    {
+      "method": "GET",
+      "path": "/api/dashboard",
+      "taskId": "TML-DASH",
+      "owner": "M02"
+    },
+    {
+      "method": "GET",
+      "path": "/api/focus-sessions",
+      "taskId": "TML-TIMER",
+      "owner": "M03"
+    },
+    {
+      "method": "POST",
+      "path": "/api/focus-sessions",
+      "taskId": "TML-TIMER",
+      "owner": "M03"
+    },
+    {
+      "method": "POST",
+      "path": "/api/focus-sessions/:id/stop",
+      "taskId": "TML-TIMER",
+      "owner": "M03"
+    },
+    {
+      "method": "GET",
+      "path": "/api/gpa-goal",
+      "taskId": "TML-GPA",
+      "owner": "M05"
+    },
+    {
+      "method": "GET",
+      "path": "/api/grades",
+      "taskId": "TML-GRADES",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/grades",
+      "taskId": "TML-GRADES",
+      "owner": "M05"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/grades/:id",
+      "taskId": "TML-GRADES",
+      "owner": "M05"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/grades/:id",
+      "taskId": "TML-GRADES",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/grades/:id/what-if",
+      "taskId": "TML-GRADES",
+      "owner": "M05"
+    },
+    {
+      "method": "GET",
+      "path": "/api/planner",
+      "taskId": "TML-PLAN",
+      "owner": "M02"
+    },
+    {
+      "method": "POST",
+      "path": "/api/planner/replan",
+      "taskId": "TML-PLAN",
+      "owner": "M02"
+    },
+    {
+      "method": "GET",
+      "path": "/api/semesters",
+      "taskId": "TML-GPA",
+      "owner": "M05"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/semesters/:n",
+      "taskId": "TML-GPA",
+      "owner": "M05"
+    },
+    {
+      "method": "GET",
+      "path": "/api/shop/items",
+      "taskId": "TML-SHOP",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shop/items/:id/buy",
+      "taskId": "TML-SHOP",
+      "owner": "M05"
+    },
+    {
+      "method": "POST",
+      "path": "/api/study-blocks",
+      "taskId": "TML-PLAN",
+      "owner": "M02"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/study-blocks/:id",
+      "taskId": "TML-RESCHED",
+      "owner": "M04"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/study-blocks/:id",
+      "taskId": "TML-DASH",
+      "owner": "M02"
+    },
+    {
+      "method": "POST",
+      "path": "/api/study-blocks/:id/reschedule",
+      "taskId": "TML-RESCHED",
+      "owner": "M04"
+    },
+    {
+      "method": "GET",
+      "path": "/api/study-blocks/suggestions",
+      "taskId": "TML-PLAN",
+      "owner": "M02"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tasks",
+      "taskId": "TML-PLAN",
+      "owner": "M02"
+    },
+    {
+      "method": "POST",
+      "path": "/api/tasks",
+      "taskId": "TML-TASK",
+      "owner": "M03"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/tasks/:id",
+      "taskId": "TML-TASK",
+      "owner": "M03"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tasks/:id",
+      "taskId": "TML-TASK",
+      "owner": "M03"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/tasks/:id",
+      "taskId": "TML-TASK",
+      "owner": "M03"
+    },
+    {
+      "method": "POST",
+      "path": "/api/uploads/image",
+      "taskId": "TML-ADMIN",
+      "owner": "M05"
+    }
+  ],
+  "mock": {
+    "files": [
+      "frontend/src/mocks/data.js",
+      "frontend/src/mocks/team.js"
+    ],
+    "crudEntity": "Task",
+    "auth": {
+      "member": {
+        "email": "bolormaa@must.edu.mn",
+        "password": "Secret123"
+      },
+      "admin": {
+        "email": "admin@must.edu.mn",
+        "password": "Admin1234"
+      }
+    },
+    "session": "sessionStorage: timely.session.userId"
+  },
+  "scenarios": [
+    {
+      "tag": "crud",
+      "file": "frontend/e2e/crud.spec.js",
+      "role": "member",
+      "entity": "Task",
+      "taskId": "TML-TASK",
+      "steps": [
+        "login member",
+        "/tasks/new: гарчиг+deadline оруулж [Нэмэх]",
+        "/planner дээр хайж харах (Read)",
+        "/tasks/:id нээж гарчиг засах [Хадгалах]",
+        "[Устгах] → [Тийм, устгах]",
+        "/planner дээр устсаныг баталгаажуулах"
+      ]
+    },
+    {
+      "tag": "validation",
+      "file": "frontend/e2e/validation.spec.js",
+      "taskId": "TML-TASK",
+      "steps": [
+        "/tasks/new хоосон гарчиг: 'Гарчиг заавал оруулна уу' алдаа, шилжилтгүй",
+        "/authenticate буруу имэйл/богино нууц үг: бүртгэл амжилтгүй"
+      ]
+    },
+    {
+      "tag": "role",
+      "file": "frontend/e2e/role.spec.js",
+      "taskId": "TML-AUTH",
+      "steps": [
+        "guest /planner → /authenticate",
+        "member /admin/shop → / руу буцна",
+        "admin /admin/shop нээгдэж shop-form харагдана",
+        "reload хийхэд нэвтрэлт хадгалагдана"
+      ]
+    }
+  ],
+  "commands": {
+    "build": "npm run build",
+    "test:ci": "npm run test:ci",
+    "e2e": "npm run test:e2e",
+    "start:grader": "npm run start:grader"
+  },
+  "constraints": {
+    "backendCalls": "Бие даалт 1 дээр /api/ руу хүсэлт илгээхгүй"
+  }
+}
